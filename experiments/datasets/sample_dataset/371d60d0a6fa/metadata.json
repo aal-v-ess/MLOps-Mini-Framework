@@ -1,0 +1,26 @@
+{
+  "dataset_id": "sample_dataset",
+  "name": "sample_dataset",
+  "version": "371d60d0a6fa",
+  "description": "Sample dataset for testing",
+  "format": "pandas.DataFrame",
+  "size_bytes": "7328",
+  "n_rows": 100,
+  "n_columns": 3,
+  "column_types": {
+    "A": "float64",
+    "B": "int32",
+    "C": "object"
+  },
+  "tags": [
+    "test",
+    "sample"
+  ],
+  "created_at": "2024-11-16 15:41:02.715591",
+  "hash": "371d60d0a6fa",
+  "source_url": null,
+  "parent_version": null,
+  "transformation_info": {
+    "preprocessing": "none"
+  }
+}

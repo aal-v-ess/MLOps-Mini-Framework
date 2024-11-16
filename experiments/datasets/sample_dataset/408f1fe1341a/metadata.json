@@ -1,0 +1,28 @@
+{
+  "dataset_id": "sample_dataset",
+  "name": "sample_dataset",
+  "version": "408f1fe1341a",
+  "description": "Modified sample dataset",
+  "format": "pandas.DataFrame",
+  "size_bytes": "8128",
+  "n_rows": 100,
+  "n_columns": 4,
+  "column_types": {
+    "A": "float64",
+    "B": "int32",
+    "C": "object",
+    "D": "float64"
+  },
+  "tags": [
+    "test",
+    "sample",
+    "modified"
+  ],
+  "created_at": "2024-11-16 15:41:02.817756",
+  "hash": "408f1fe1341a",
+  "source_url": null,
+  "parent_version": "371d60d0a6fa",
+  "transformation_info": {
+    "preprocessing": "added column D = A * 2"
+  }
+}
