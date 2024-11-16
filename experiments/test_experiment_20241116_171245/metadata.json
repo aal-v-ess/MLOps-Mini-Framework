@@ -1,0 +1,12 @@
+{
+  "experiment_id": "test_experiment_20241116_171245",
+  "name": "test_experiment",
+  "description": "Test experiment",
+  "tags": [
+    "test",
+    "example"
+  ],
+  "start_time": "2024-11-16T17:12:45.596873",
+  "end_time": null,
+  "status": "running"
+}

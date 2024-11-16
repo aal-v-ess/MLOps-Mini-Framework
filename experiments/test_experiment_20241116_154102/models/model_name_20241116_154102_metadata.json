@@ -1,9 +1,0 @@
-{
-  "model_id": "model_name_20241116_154102",
-  "name": "model_name",
-  "timestamp": "20241116_154102",
-  "stage": "development",
-  "experiment_id": "test_experiment_20241116_154102",
-  "framework": "pytorch",
-  "type": "classification"
-}

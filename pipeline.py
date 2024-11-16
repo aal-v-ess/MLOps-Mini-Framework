@@ -1,57 +1,14 @@
 from experiments import ExperimentTracker
 from data_versioning import DataVersion, track_dataset_usage
+from data_quality.data_quality import DataQualityChecker
+from model import DummyModel
 import pandas as pd
 import numpy as np
-
-# # Example usage
-# if __name__ == "__main__":
-#     # Initialize tracker
-#     experiment_path = "experiments"
-#     tracker = ExperimentTracker(experiment_path)
-    
-#     # Create experiment
-#     experiment_id = tracker.create_experiment(
-#         name="test_experiment",
-#         description="Test experiment",
-#         tags=["test", "example"]
-#     )
-    
-#     # Log parameters
-#     tracker.log_params({
-#         "learning_rate": 0.001,
-#         "batch_size": 32,
-#         "epochs": 10
-#     })
-    
-#     # Log metrics
-#     for step in range(5):
-#         tracker.log_metrics({
-#             "loss": 0.5 - step * 0.1,
-#             "accuracy": 0.8 + step * 0.04
-#         }, step=step)
-    
-#     # Save dummy model (temporary)
-#     class DummyModel:
-#         def __init__(self):
-#             self.name = "dummy"
-    
-#     model = DummyModel()
-#     model_id = tracker.save_model(
-#         model,
-#         name="model_name",
-#         metadata={"framework": "pytorch", "type": "classification"}
-#     )
-    
-#     # Get metrics
-#     metrics_df = tracker.get_experiment_metrics(metric_names=["loss", "accuracy"])
-#     print("\nMetrics:")
-#     print(metrics_df)
-
-
 
     
 # Example usage
 if __name__ == "__main__":
+
     # Initialize data versioning
     data_version = DataVersion("experiments")
     
@@ -72,6 +29,19 @@ if __name__ == "__main__":
             "preprocessing": "none"
         }
     )
+
+
+    # Initialize with reference data
+    checker = DataQualityChecker(reference_data=df)
+    # Create expectation suite
+    suite = checker.create_basic_suite(df)
+    # Run quality checks
+    quality_results = checker.check_data_quality(df, suite)
+    # # Check for both data drift and concept drift
+    # drift_results = checker.detect_drift(new_data)
+    # # Generate comprehensive report
+    # report = checker.generate_report(quality_results, drift_results)
+
     
     # Create modified version
     df_modified = df.copy()
@@ -137,11 +107,6 @@ if __name__ == "__main__":
             "loss": 0.5 - step * 0.1,
             "accuracy": 0.8 + step * 0.04
         }, step=step)
-    
-    # Save dummy model (temporary)
-    class DummyModel:
-        def __init__(self):
-            self.name = "dummy"
     
     model = DummyModel()
     model_id = tracker.save_model(

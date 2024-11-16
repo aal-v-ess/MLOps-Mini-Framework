@@ -1,9 +1,0 @@
-{
-  "experiment_id": "dataset_test_20241116_111038",
-  "name": "dataset_test",
-  "description": "Testing dataset versioning",
-  "tags": [],
-  "start_time": "2024-11-16T11:10:38.867161",
-  "end_time": null,
-  "status": "running"
-}
