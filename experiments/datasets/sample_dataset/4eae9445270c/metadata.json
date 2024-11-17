@@ -1,7 +1,7 @@
 {
   "dataset_id": "sample_dataset",
   "name": "sample_dataset",
-  "version": "074420c3a64b",
+  "version": "4eae9445270c",
   "description": "Sample dataset for testing",
   "format": "pandas.DataFrame",
   "size_bytes": "7328",
@@ -16,8 +16,8 @@
     "test",
     "sample"
   ],
-  "created_at": "2024-11-16 17:12:45.317141",
-  "hash": "074420c3a64b",
+  "created_at": "2024-11-17 11:23:30.001370",
+  "hash": "4eae9445270c",
   "source_url": null,
   "parent_version": null,
   "transformation_info": {

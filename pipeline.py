@@ -30,7 +30,6 @@ if __name__ == "__main__":
         }
     )
 
-
     # Initialize with reference data
     checker = DataQualityChecker(reference_data=df)
     # Create expectation suite
@@ -41,7 +40,6 @@ if __name__ == "__main__":
     # drift_results = checker.detect_drift(new_data)
     # # Generate comprehensive report
     # report = checker.generate_report(quality_results, drift_results)
-
     
     # Create modified version
     df_modified = df.copy()
@@ -64,6 +62,26 @@ if __name__ == "__main__":
     print("\nDataset versions:")
     for v in versions:
         print(f"Version: {v.version}, Created: {v.created_at}")
+
+    # Get specific version (in this case the original unmodifed dataset)
+    try:
+        # get first match inside list of lists
+        # first_match = [version for version in versions if version.description=="Sample dataset for testing"][0]
+        first_match = next(x for x in versions if x.description=="Sample dataset for testing")
+        print(f"First match: {first_match}")
+        dataset_id = first_match.dataset_id
+        version = first_match.version
+        print(dataset_id, version)
+
+        # get last match inside list of lists
+        last_match = [version for version in versions if version.description=="Sample dataset for testing"][-1]
+        print(f"Last match: {last_match}")
+        dataset_id = last_match.dataset_id
+        version = last_match.version
+        print(dataset_id, version)
+    except (ValueError, AttributeError, StopIteration) as e:
+        print(e)
+
     
     # Get lineage
     lineage = data_version.get_dataset_lineage(dataset_id, new_version)
@@ -81,7 +99,14 @@ if __name__ == "__main__":
     with track_dataset_usage(tracker, dataset_id, new_version):
         # Load and use dataset
         data, metadata = data_version.load_dataset(dataset_id, new_version)
-        print("\nLoaded dataset shape:", data.shape)
+        print(f"\nDataset: {metadata.name}. Version: {metadata.version}. Description: {metadata.description}")
+        print(f"Loaded dataset shape: {data.shape}")
+
+    with track_dataset_usage(tracker, dataset_id, version):
+        # Load and use dataset (Unmodified dataset)
+        data, metadata = data_version.load_dataset(dataset_id, version)
+        print(f"\nDataset: {metadata.name}. Version: {metadata.version}. Description: {metadata.description}")
+        print(f"Loaded dataset shape: {data.shape}")
 
     # Initialize tracker
     experiment_path = "experiments"
