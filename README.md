@@ -30,10 +30,32 @@ experiments/
 │           └── metadata.json
 
 
+## Data Quality
+
+Basic data quality checks:
+- Schema validation
+- Missing value detection
+- Value range validation
+- Data type validation
+- Categorical value set validation
+
+
+Drift detection:
+- Data drift using Kolmogorov-Smirnov test
+- Concept drift monitoring through distribution shifts
+- Configurable thresholds for drift detection
+
+
+Comprehensive reporting:
+- Quality check results
+- Failed validations
+- Drift analysis
+- Timestamp tracking
 
 
 
-TODO
+# TODO
+
 Next steps could include:
 - Implementing artifact tracking
 - Adding experiment comparison utilities
